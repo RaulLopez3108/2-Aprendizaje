@@ -13,6 +13,7 @@ __date__ = "enero 2025"
 
 import math
 from collections import Counter
+import random
 
 def entrena_arbol(datos, target, clase_default, 
                   max_profundidad=None, acc_nodo=1.0, min_ejemplos=0,
@@ -45,12 +46,14 @@ def entrena_arbol(datos, target, clase_default,
         El nodo raíz del árbol de desición
     
     """
+
     atributos = list(datos[0].keys())
-    atributos.remove(target)
-        
+    atributos.remove(target)  
     # Criterios para deterinar si es un nodo hoja
     if  len(datos) == 0 or len(atributos) == 0:
         return NodoN(terminal=True, clase_default=clase_default)
+    
+    variables_seleccionadas = random.sample(atributos) if variables_seleccionadas == int else None
     
     clases = Counter(d[target] for d in datos)
     clase_default = clases.most_common(1)[0][0]
@@ -60,7 +63,8 @@ def entrena_arbol(datos, target, clase_default,
         clases.most_common(1)[0][1] / len(datos) >= acc_nodo):
         
         return NodoN(terminal=True, clase_default=clase_default)
-    
+     
+
     variable, valor = selecciona_variable_valor(
         datos, target, atributos
     )
