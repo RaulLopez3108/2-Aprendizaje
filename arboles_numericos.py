@@ -53,7 +53,7 @@ def entrena_arbol(datos, target, clase_default,
     if  len(datos) == 0 or len(atributos) == 0:
         return NodoN(terminal=True, clase_default=clase_default)
     
-    variables_seleccionadas = random.sample(atributos) if type(variables_seleccionadas) == int else None 
+    variables_seleccionadas = random.sample(atributos,variables_seleccionadas) if type(variables_seleccionadas) == int else None 
     #Verificar que este bien 
     
     clases = Counter(d[target] for d in datos)
