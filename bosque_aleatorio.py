@@ -28,7 +28,15 @@ def entrena_bosque(datos,target,clase_default,
         bosque.append(arbol)
     return bosque
 
-def predice_bosque():
-    pass
+def predice_bosque(bosque,datos):
+    return[bosque.predice(d)for d in datos]
+
+
+def predice():
+    if arboles_numericos.self.terminal:
+            return arboles_numericos.self.clase_default               
+    if arboles_numericos.instancia[arboles_numericos.self.atributo] < arboles_numericos.self.valor:
+        return arboles_numericos.self.hijo_menor.predice(arboles_numericos.instancia)       
+    return arboles_numericos.self.hijo_mayor.predice(arboles_numericos.instancia)
 
 
