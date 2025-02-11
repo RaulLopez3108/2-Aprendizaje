@@ -54,7 +54,7 @@ def entrena_arbol(datos, target, clase_default,
         return NodoN(terminal=True, clase_default=clase_default)
     
     variables_seleccionadas = random.sample(atributos,variables_seleccionadas) if type(variables_seleccionadas) == int else None 
-    #Verificar que este bien 
+     
     
     clases = Counter(d[target] for d in datos)
     clase_default = clases.most_common(1)[0][0]
